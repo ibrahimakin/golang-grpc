@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package greet;
-option go_package="greet/greetpb";
+option go_package = "greet/greetpb"; // greetpb
 
 message Greeting {
     string first_name = 1; // assign tag number 1, mean first field for greeting message
@@ -16,7 +16,18 @@ message GreetResponse {
     string result = 1;
 }
 
+message GreetManyTimesRequest {
+    Greeting greeting = 1;
+}
+
+message GreetManyTimesResponse {
+    string result = 1;
+}
+
 service GreetService {
     // Unary
     rpc Greet (GreetRequest) returns (GreetResponse) {};
+
+    // Server Streaming
+    rpc GreetManyTimes (GreetManyTimesRequest) returns (stream GreetManyTimesResponse) {}  // create new message req res for each rpc
 }
