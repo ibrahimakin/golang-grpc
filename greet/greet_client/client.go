@@ -57,7 +57,7 @@ func doServerStreaming(c greetpb.GreetServiceClient) {
 		log.Fatalf("error while calling GreetManyTimes RPC: %v", err)
 	}
 	for {
-		msg, err := resStream.Recv()
+		msg, err := resStream.Recv() // Recieve
 		if err == io.EOF {
 			// we've reached the end of the stream
 			break

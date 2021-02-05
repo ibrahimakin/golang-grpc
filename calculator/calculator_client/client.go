@@ -55,7 +55,7 @@ func doServerStreaming(c calculatorpb.CalculatorServiceClient) {
 		log.Fatalf("error while calling PrimeNumberDecomposition RPC: %v", err)
 	}
 	for {
-		msg, err := resStream.Recv()
+		msg, err := resStream.Recv() // Recieve
 		if err == io.EOF {
 			// we've reached the end of the stream
 			break
@@ -63,6 +63,6 @@ func doServerStreaming(c calculatorpb.CalculatorServiceClient) {
 		if err != nil {
 			log.Fatalf("error while reading stream: %v", err)
 		}
-		log.Printf("Response from PrimeNumberDecomposition: %v", msg)
+		log.Printf("Response from PrimeNumberDecomposition: %v", msg.GetNumber())
 	}
 }

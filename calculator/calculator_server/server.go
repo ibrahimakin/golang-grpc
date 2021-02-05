@@ -38,6 +38,7 @@ func (*server) PrimeNumberDecomposition(req *calculatorpb.PrimeNumberRequest, st
 			time.Sleep(1000 * time.Millisecond)
 		} else {
 			k = k + 1
+			fmt.Printf("Divisor has increased to %v\n", k)
 		}
 	}
 	return nil
