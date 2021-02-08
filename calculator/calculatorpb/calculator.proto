@@ -32,13 +32,24 @@ message AverageResponse {
     float number = 1;
 }
 
+message FindMaxRequest {
+    int32 number = 1;
+}
+
+message FindMaxResponse {
+    int32 number = 1;
+}
+
 service CalculatorService {
     // Unary
-    rpc Calculate (CalculationRequest) returns (CalculationResponse);
+    rpc Calculate (CalculationRequest) returns (CalculationResponse) {};
 
     // Server Streaming
-    rpc PrimeNumberDecomposition (PrimeNumberRequest) returns (stream PrimeNumberResponse);
+    rpc PrimeNumberDecomposition (PrimeNumberRequest) returns (stream PrimeNumberResponse) {};
 
     // Client Streaming
-    rpc ComputeAverage (stream AverageRequest) returns (AverageResponse);
+    rpc ComputeAverage (stream AverageRequest) returns (AverageResponse) {};
+
+    // BiDi Streaming
+    rpc FindMaximum (stream FindMaxRequest) returns (stream FindMaxResponse) {};
 }
