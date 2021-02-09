@@ -15,3 +15,8 @@
 # vendor/
 
 goCommands.txt
+
+ca.key
+server.key
+server.pem
+server.crt
