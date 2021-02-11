@@ -59,7 +59,7 @@ func main() {
 	readBlogRes, readBlogErr := c.ReadBlog(context.Background(), readBlogReq)
 
 	if readBlogErr != nil {
-		log.Fatalf("Error happend when reading: %v\n", readBlogErr)
+		log.Fatalf("Error happened when reading: %v\n", readBlogErr)
 	}
 
 	fmt.Printf("Blog was read: %v\n", readBlogRes)
@@ -77,4 +77,12 @@ func main() {
 		log.Fatalf("Unexpected error: %v\n", updateBlogErr)
 	}
 	fmt.Printf("Blog has been updated: %v\n", updateBlogRes)
+
+	// Delete Blog
+	fmt.Println("Deleting the blog")
+	deleteRes, deleteErr := c.DeleteBlog(context.Background(), &blogpb.DeleteBlogRequest{BlogId: blogID})
+	if deleteErr != nil {
+		log.Fatalf("Error happened when deleting: %v\n", deleteErr)
+	}
+	fmt.Printf("Blog was deleted: %v\n", deleteRes)
 }
