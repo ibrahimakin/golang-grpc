@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 
 	"../blogpb"
@@ -85,4 +86,22 @@ func main() {
 		log.Fatalf("Error happened when deleting: %v\n", deleteErr)
 	}
 	fmt.Printf("Blog was deleted: %v\n", deleteRes)
+
+	// List Blogs
+	fmt.Println("Listing the blogs")
+	stream, err := c.ListBlog(context.Background(), &blogpb.ListBlogRequest{})
+	if err != nil {
+		log.Fatalf("error while calling ListBlog RPC: %v\n", err)
+	}
+	for {
+		msg, err := stream.Recv() // Recieve
+		if err == io.EOF {
+			// we've reached the end of the stream
+			break
+		}
+		if err != nil {
+			log.Fatalf("error while reading stream: %v\n", err)
+		}
+		log.Printf("Response from ListBlog: %v\n", msg.GetBlog())
+	}
 }
