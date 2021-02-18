@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	"../calculatorpb"
+	"example.com/calculatorpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

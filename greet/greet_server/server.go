@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"../greetpb"
+	"example.com/greetpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
@@ -116,8 +116,8 @@ func main() {
 	opts := []grpc.ServerOption{}
 	tls := true
 	if tls {
-		certFile := "ssl/server.crt"
-		keyFile := "ssl/server.pem"
+		certFile := "C:/Users/ibrahim/Projects/GoLang/gRPC/ssl/server.crt"
+		keyFile := "C:/Users/ibrahim/Projects/GoLang/gRPC/ssl/server.pem"
 		creds, sslErr := credentials.NewServerTLSFromFile(certFile, keyFile)
 		if sslErr != nil {
 			log.Fatalf("Failed loading certificate: %v\n", sslErr)

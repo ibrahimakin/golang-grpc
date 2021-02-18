@@ -1,6 +1,6 @@
-module example.com/greetpb
+module example.com/calculatorpb
 
-go 1.15
+go 1.16
 
 require (
 	google.golang.org/grpc v1.35.0

@@ -6,7 +6,7 @@ import (
 	"io"
 	"log"
 
-	"../blogpb"
+	"example.com/blogpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

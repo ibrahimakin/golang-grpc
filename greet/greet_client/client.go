@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	"../greetpb"
+	"example.com/greetpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
@@ -20,7 +20,7 @@ func main() {
 	opts := grpc.WithInsecure()
 	tls := true
 	if tls {
-		certFile := "ssl/ca.crt" // Certificate Authority Trust Certificate
+		certFile := "C:/Users/ibrahim/Projects/GoLang/gRPC/ssl/ca.crt" // Certificate Authority Trust Certificate
 		creds, sslErr := credentials.NewClientTLSFromFile(certFile, "")
 		if sslErr != nil {
 			log.Fatalf("Error while loading CA trust certificate: %v\n", sslErr)
