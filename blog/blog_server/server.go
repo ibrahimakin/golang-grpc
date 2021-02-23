@@ -25,10 +25,10 @@ var collection *mongo.Collection
 type server struct{}
 
 type blogItem struct {
-	ID       primitive.ObjectID `bson: "_id, omitempty"`
-	AuthorID string             `bson: "author_id"`
-	Title    string             `bson: "title"`
-	Content  string             `bson: "content"`
+	ID       primitive.ObjectID `bson:"_id, omitempty"`
+	AuthorID string             `bson:"author_id"`
+	Title    string             `bson:"title"`
+	Content  string             `bson:"content"`
 }
 
 func (*server) CreateBlog(ctx context.Context, req *blogpb.CreateBlogRequest) (*blogpb.CreateBlogResponse, error) {

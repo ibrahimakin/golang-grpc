@@ -1,4 +1,4 @@
-module example.com/greet
+module example.com/greet_server
 
 go 1.15
 
